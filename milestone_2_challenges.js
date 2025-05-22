@@ -28,16 +28,22 @@ function findMax(arr2) {
 console.log(findMax([3, 7, 2, 9, 5]));
 
 //Election Winner//
+const findWinner = (object) => {
+  let winner = object[0];
 
-// function findWinner(candidateArray) {
-//   let winner = "";
-//   for (let i = 0; i < candidates.length; i++) {
-//     if  {
-//     }
-//   }
-// }
-
-// findWinner(candidates);
+  for (let i = 1; i <= object.length - 1; i++) {
+    if (object[i].votes > winner.votes) {
+      winner = object[i];
+    }
+  }
+  return winner;
+};
+const candidates = [
+  { name: "Alice", votes: 80 },
+  { name: "Bob", votes: 75 },
+  { name: "Charlie", votes: 25},
+];
+console.log(findWinner(candidates));
 
 
 //Find longestword//
@@ -112,14 +118,31 @@ for (const num of filteredOdd){
 console.log(differenceEvenOdd([1, 2, 3, 4, 5, 6]))
 
 // Count Truthy//
+const countTruthy = (object) => {
+  let count = 0;
+  for (let key in object) {
+    if (object[key]) {
+      count = count + 1;
+    }
+  }
+  return count;
+};
+console.log(countTruthy({ a: 0, b: "hello", c: false, d: 42, e: null }));
 
 
 
 
 //average numbers//
+const average = (arr7) => {
+  let sum = 0;
+  for (let i = 0; i < arr7.length; i++) {
+    sum = +arr7[i];
+  }
+  let average = sum / arr7.length;
+  return average;
+};
 
-
-
+console.log(average([2, 4, 6, 8]));
 
 //Linear Search//
 function linearSearch (arra4,value){
@@ -165,3 +188,61 @@ function linearSearchAll (arra6,value){
 
 console.log(linearSearchAll([5, 3, 7, 1, 4, 7], 7))
 console.log(linearSearchAll([5, 3, 7, 1, 4], 10))
+
+// Count Occurrences//
+const countOccurrences = (arr8) => {
+  const countOfObjectS = {};
+
+  for(let i = 0; i < arr8.length; i++){
+    let item =arr8[i];
+    if (countOfObjects[item]) {
+      countOfObjectS[item] += 1;
+    } else {
+      countOfObjectS[item] = 1;
+    }
+  }
+  return countOfObjectS;
+};
+console.log(
+  countOccurrences(["apple", "banana", "apple", "orange", "banana", "apple"]));
+
+
+//Remove Duplicates//
+const removeDuplicates = (arr9) => {
+  const noDuplicate = [];
+  for (let i = 0; i < arr9.length; i++) {
+    if (!noDuplicate.includes(arr9[i])) {
+      noDuplicate.push(arr9[i]);
+    }
+  }
+  return noDuplicate;
+};
+console.log(removeDuplicates([1, 2, 3, 2, 4, 1, 5]));
+
+// Most Frequent//
+const mostFrequent = (arr10) => {
+
+  let maximumcount = 0;
+  let mostFrequent =[];
+  
+
+  for (let i = 0; i < arr10.length; i++) {
+    let count = 0;
+    
+    for (let j = 0; j < arr10.length; j++) {
+      if (arr10[i] == arr10[j]) {
+        count++;
+      }
+      if (count > maximumcount) {
+        maximumcount = count;
+        mostFrequent = arr10[i];
+      }
+    }
+  }
+  return mostFrequent;
+};
+console.log(
+  mostFrequent(["apple", "banana", "apple", "orange", "banana", "apple"]));
+
+
+
